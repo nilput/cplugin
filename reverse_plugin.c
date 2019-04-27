@@ -13,7 +13,7 @@ static void pmessage(const char *message) {
         rmsg[j++] = message[i];
     }
     rmsg[msglen] = 0;
-    printf("reversed: '''%s'''\n", rmsg);
+    printf("\treversed: '''%s'''\n", rmsg);
     free(rmsg);
 }
 static struct plugin_interface iface = {
@@ -23,6 +23,6 @@ static struct plugin_interface iface = {
 };
 
 void reverse_plugin_init(struct gstate *g) {
-    printf("initializing reverse_plugin..\n");
+    printf("\tinitializing reverse_plugin..\n");
     register_plugin(g, &iface);
 }

@@ -13,27 +13,30 @@ struct gstate g = {0};
 
 
 const char * const messages[] = {
-"\"I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best.\" "
-"― Marilyn Monroe",
+"\"I'm selfish, impatient and a little insecure. I make mistakes, I am out of\n"
+ "  control and at times hard to handle. But if you can't handle me at my\n"
+ "  worst, then you sure as hell don't deserve me at my best.\" \n"
+ "  ― Marilyn Monroe\n",
 
-"\"Be yourself; everyone else is already taken.\" "
-"― Oscar Wilde",
+"\"Be yourself; everyone else is already taken.\" \n"
+ "  ― Oscar Wilde\n",
 
-"\"Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.\" "
-"― Albert Einstein",
+"\"Two things are infinite: the universe and human stupidity; and I'm not sure\n"
+ "   about the universe.\"\n"
+ "  ― Albert Einstein\n",
 
-"\"So many books, so little time.\" "
-"― Frank Zappa",
+"\"So many books, so little time.\" \n"
+ "  ― Frank Zappa",
 
-"\"Be who you are and say what you feel, because those who mind don't matter, and those who matter don't mind.\" "
-"― Bernard M. Baruch",
+"\"Be who you are and say what you feel, because those who mind don't matter,\n"
+ "  and those who matter don't mind.\"\n"
+ "  ― Bernard M. Baruch",
 };
 const int nmessages = sizeof messages / sizeof messages[0];
 
 void process_message(const char *message) {
-    printf( "main program: \n"
-            "processing the message:\n"
-            "\t'''%s'''\n\n", message);
+    printf( "processing:\n"
+            "'''%s'''\n\n", message);
     for (int i=0; i<g.nplugins; i++) {
         assert(g.plugin_vtables[i]);
         if (g.plugin_vtables[i]->process_message) {

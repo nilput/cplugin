@@ -10,7 +10,7 @@ static void pmessage(const char *message) {
         ncommas++;
         comma = strchr(comma+1, ',');
     }
-    printf("Found %d commas!\n", ncommas);
+    printf("\tFound %d commas!\n", ncommas);
 }
 static struct plugin_interface iface = {
     .plugin_name = "comma plugin",
@@ -19,6 +19,6 @@ static struct plugin_interface iface = {
 };
 
 void comma_plugin_init(struct gstate *g) {
-    printf("initializing comma_plugin..\n");
+    printf("\tinitializing comma_plugin..\n");
     register_plugin(g, &iface);
 }
