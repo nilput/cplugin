@@ -8,8 +8,6 @@
 #include "plugin_interface.h"
 #include "gstate.h"
 
-
-//loading the plugins from the "./plugins/" directory
 static void die(const char *msg) {
     fprintf(stderr, "error: %s\n", msg);
     exit(1);
@@ -22,16 +20,6 @@ static void *xmalloc(size_t sz) {
     return m;
 }
 
-static int filter_relevent_files(const struct dirent *entry) {
-    if (entry->d_name && strlen(entry->d_name)) {
-        //loads files that only end with _plugin.so
-        const char *needle = strstr(entry->d_name, "_plugin.so");
-        if (needle && strlen(needle) == strlen("_plugin.so")) {
-            return 1;
-        }
-    }
-    return 0;
-}
 static char *str_del_suffix(const char *str, const char *suffix) {
     size_t len = strlen(str);
     char *newstr = xmalloc(len+1);
@@ -51,6 +39,17 @@ static char *str_append(const char *prefix, const char *suffix) {
     return str;
 }
 
+//loading the plugins from the "./plugins/" directory
+static int filter_relevent_files(const struct dirent *entry) {
+    if (entry->d_name && strlen(entry->d_name)) {
+        //loads files that only end with _plugin.so
+        const char *needle = strstr(entry->d_name, "_plugin.so");
+        if (needle && strlen(needle) == strlen("_plugin.so")) {
+            return 1;
+        }
+    }
+    return 0;
+}
 static void load_plugins(struct gstate *state) {
     struct dirent **entries = NULL;
     int nentries = scandir("./plugins/", &entries, filter_relevent_files, alphasort);

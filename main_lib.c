@@ -1,10 +1,4 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
 #include <assert.h>
-#include <dlfcn.h>
-#include <fcntl.h>
-#include <dirent.h>
 #include "plugin_interface.h"
 #include "gstate.h"
 //called by plugins
