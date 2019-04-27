@@ -13,9 +13,3 @@ struct plugin_interface {
 typedef void (*plugin_init_fptr) (struct gstate *state);
 
 void register_plugin(struct gstate *state, struct plugin_interface *iface);
-
-
-
-//called by main application
-void load_plugins(struct gstate *state);
-void info_plugins(struct gstate *state);

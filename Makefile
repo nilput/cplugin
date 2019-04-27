@@ -4,7 +4,7 @@ CFLAGS := -fPIC -g3 -O0 -Wall -Wextra
 main: LDLIBS := -ldl -lmain
 main: LDFLAGS := -L. -Wl,-rpath=\$$ORIGIN/
 main: libmain.so
-%.so : %.c
+%.so : plugin_src/%.c
 	$(CC) -shared $(CFLAGS) $(LDFLAGS) $(LDLIBS) -o $@ $^
 
 libmain.so: LDLIBS := -ldl

@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include "plugin_interface.h"
+#include "../plugin_interface.h"
 
 static void pmessage(const char *message) {
     const char *comma = strchr(message, ',');
